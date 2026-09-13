@@ -8,7 +8,7 @@ The game tests your memory and concentration by generating a random sequence of 
 
 Play the game online:
 
-**[Add your GitHub Pages Live Link Here]**
+ https://kutubkhan0705.github.io/SIMON-GAME/
 
 ## ✨ Features
 
