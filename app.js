@@ -5,10 +5,10 @@ let btns = ["yellow", "red", "purple", "green"];
 
 let started = false;
 let level = 0;
-let highScore = localStorage.getItem("simonHighScore") || 0;
-document.querySelector("#highScore").innerText = highScore;
+let highScore = 1;
 
 let h2 = document.querySelector("h2");
+let h3 = document.querySelector("h3");
 
 document.addEventListener("keypress", function () {
     if (started == false) {
@@ -38,6 +38,9 @@ function userFlash(btn) {
 function levelUp() {
     userSeq = [];
     level++;
+    if (level > highScore) {
+        highScore = level;
+    }
     h2.innerText = `Level ${level}`;
 
 
@@ -57,23 +60,13 @@ function checkAns(idx) {
             setTimeout(levelUp, 1000);
         }
     } else {
-
-        // Check and update highest score
-        if (level > highScore) {
-            highScore = level;
-            localStorage.setItem("simonHighScore", highScore);
-            document.querySelector("#highScore").innerText = highScore;
-
-        }
-
         h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br> Press any key to start.`;
-
+        h3.innerHTML = `High Score: <b>${highScore}</b>`;
         document.querySelector("body").style.backgroundColor = "red";
-
         setTimeout(function () {
             document.querySelector("body").style.backgroundColor = "white";
-        }, 150);
 
+        }, 150);
         reset();
     }
 }
