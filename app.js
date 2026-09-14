@@ -38,7 +38,7 @@ function userFlash(btn) {
 function levelUp() {
     userSeq = [];
     level++;
-    if (level > highScore) {
+    if (level >= highScore) {
         highScore = level;
     }
     h2.innerText = `Level ${level}`;
